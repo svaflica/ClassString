@@ -6,9 +6,10 @@
 #include "Out_Of_Range.h"
 #include "Refer_To_Nullptr.h"
 #include "Other_Exception.h"
+#include "Parameter_Exception.h"
 
 
-
+//public:
 String::String()
 {
 	value_ = nullptr;
@@ -204,40 +205,6 @@ ostream& operator<<(ostream& out, String& string)
 
 
 int
-String::cmp(const String& string)
-{
-	int check = 0;
-	bool flagEnd = (value_[check] != '\0' && string.value_[check] != '\0');
-	while (value_[check] == string.value_[check] && flagEnd)
-		check++;
-
-	if (value_[check] == string.value_[check])
-		return 0;
-	else if (value_[check] > string.value_[check])
-		return 1;
-	else
-		return -1;
-}
-
-
-int
-String::cmp(const char *string)
-{
-	int check = 0;
-	while (value_[check] == string[check] && value_[check] != '\0' && value_[check] != '\0')
-		check++;
-
-	if (value_[check] == value_[check])
-		return 0;
-	else if (value_[check] > value_[check])
-		return 1;
-	else
-		return -1;
-}
-
-
-
-int
 String::getLength()
 {
 	return this->length_;
@@ -364,7 +331,7 @@ void* operator new[](size_t N)
 }
 
 
-String& 
+String&
 String::toLower()
 {
 	bool alpha;
@@ -375,7 +342,7 @@ String::toLower()
 
 		if (alpha && upper)
 			value_[i] = value_[i] + 32;
-		else 
+		else
 			value_[i] = value_[i];
 	}
 
@@ -383,7 +350,7 @@ String::toLower()
 }
 
 
-String& 
+String&
 String::toUpper()
 {
 	bool alpha;
@@ -394,11 +361,69 @@ String::toUpper()
 
 		if (alpha && lower)
 			value_[i] = value_[i] - 32;
-		else 
+		else
 			value_[i] = value_[i];
 	}
 
 	return *this;
+}
+
+
+String 
+String::copyPartly(int startInd, int endInd, String &str)
+{
+	if (str.value_ == nullptr)
+		throw Parameter_Exception("Copy", "str");
+
+	if (startInd<0 || endInd>length_ || startInd >= endInd)
+		throw Parameter_Exception("Copy", "startInd or endInd");
+
+	String temp;
+
+	temp.length_ = startInd - endInd;
+	temp.value_ = new char[temp.length_ + 1];
+	if (temp.value_ == nullptr)
+		throw Memory_Exception();
+
+	int i, j;
+	for (i = startInd, j = 0; i < temp.length_; i++, j++)
+		temp.value_[j] = str.value_[i];
+	temp.value_[temp.length_] = '\0';
+
+	return temp;
+}
+
+//private:
+int
+String::cmp(const String& string)
+{
+	int check = 0;
+	bool flagEnd = (value_[check] != '\0' && string.value_[check] != '\0');
+	while (value_[check] == string.value_[check] && flagEnd)
+		check++;
+
+	if (value_[check] == string.value_[check])
+		return 0;
+	else if (value_[check] > string.value_[check])
+		return 1;
+	else
+		return -1;
+}
+
+
+int
+String::cmp(const char *string)
+{
+	int check = 0;
+	while (value_[check] == string[check] && value_[check] != '\0' && value_[check] != '\0')
+		check++;
+
+	if (value_[check] == value_[check])
+		return 0;
+	else if (value_[check] > value_[check])
+		return 1;
+	else
+		return -1;
 }
 
 
@@ -440,4 +465,11 @@ int
 String::maxLength() const
 {
 	return INT_MAX;
+}
+
+
+bool 
+String::isEmpty()
+{
+	return (length_ == 0);
 }

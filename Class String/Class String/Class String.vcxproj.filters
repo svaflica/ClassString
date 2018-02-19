@@ -48,6 +48,9 @@
     <ClInclude Include="Other_Exception.h">
       <Filter>Файлы заголовков\Exception.h</Filter>
     </ClInclude>
+    <ClInclude Include="Parameter_Exception.h">
+      <Filter>Файлы заголовков\Exception.h</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -75,6 +78,9 @@
       <Filter>Исходные файлы\Exception.cpp</Filter>
     </ClCompile>
     <ClCompile Include="Other_Exception.cpp">
+      <Filter>Исходные файлы\Exception.cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Parameter_Exception.cpp">
       <Filter>Исходные файлы\Exception.cpp</Filter>
     </ClCompile>
   </ItemGroup>

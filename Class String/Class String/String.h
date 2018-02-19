@@ -17,6 +17,8 @@ private:
 	bool isLower(char &symbol);
 	bool isUpper(char &symbol);
 
+	bool isEmpty();
+
 	int maxLength() const;
 
 public:
@@ -26,6 +28,8 @@ public:
 	String(const String& string);
 
 	~String();
+
+	String copyPartly(int startInd, int endInd, String &str);
 
 	String& operator=(const String& string);
 
