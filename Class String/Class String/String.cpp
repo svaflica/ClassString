@@ -190,9 +190,7 @@ String::operator<(const String& string)
 bool
 String::operator<(const char* string)
 {
-	int check = this->cmp(string);
-
-	return ((check == 1) || (check == 0));
+	return (this->cmp(string) == -1);
 }
 
 
@@ -261,10 +259,8 @@ String::getIndexOfWord(String& string)
 
 String operator*(String& str, int N)
 {
-	if (N < 0) {
-		throw Other_Exception("Other_Exception: Unpositive parameter N!");
-		return str;
-	}
+	if (N < 0) 
+		throw Parameter_Exception("Other_Exception", "N");
 
 	if (N == 0)
 		return String();
@@ -370,28 +366,51 @@ String::toUpper()
 
 
 String 
-String::copyPartly(int startInd, int endInd, String &str)
+String::erase(int startInd, int endInd, String &str)
 {
-	if (str.value_ == nullptr)
-		throw Parameter_Exception("Copy", "str");
-
-	if (startInd<0 || endInd>length_ || startInd >= endInd)
-		throw Parameter_Exception("Copy", "startInd or endInd");
+	int iDontKnowHowToCallIt = endInd - startInd;
 
 	String temp;
-
-	temp.length_ = startInd - endInd;
+	temp.length_ = str.length_ - iDontKnowHowToCallIt;
 	temp.value_ = new char[temp.length_ + 1];
-	if (temp.value_ == nullptr)
-		throw Memory_Exception();
 
-	int i, j;
-	for (i = startInd, j = 0; i < temp.length_; i++, j++)
-		temp.value_[j] = str.value_[i];
-	temp.value_[temp.length_] = '\0';
+	int i = 0;
+	for (; i < startInd; i++)
+		temp.value_[i] = str.value_[i];
+	for (; i <= temp.length_; i++)
+		temp.value_[i] = str.value_[i + iDontKnowHowToCallIt];
 
 	return temp;
 }
+
+
+String&
+String::erase(int startInd, int endInd)
+{
+	const char *oldValue = value_;
+	int         oldLength = length_;
+	//
+	int iDontKnowHowToCallIt = endInd - startInd;
+
+	length_ = oldLength - iDontKnowHowToCallIt;
+	value_ = new char[length_ + 1];
+
+	int i = 0;
+	for (; i < startInd; i++)
+		value_[i] = oldValue[i];
+	for (; i <= length_; i++)
+		value_[i] = oldValue[i + iDontKnowHowToCallIt];
+
+	return *this;
+}
+
+//Dodelat, ne lenitsya!!!
+String
+String::insert(int startInd, int endInd, String &str)
+{
+	
+}
+
 
 //private:
 int

@@ -15,5 +15,5 @@ Memory_Exception::~Memory_Exception()
 const char*
 Memory_Exception::getMessage()
 {
-	return MESSAGE_;
+	return message_;
 }

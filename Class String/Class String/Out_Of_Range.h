@@ -9,6 +9,6 @@ public:
 	const char* getMessage();
 
 private:
-	const char *MESSAGE_ = "Out_Of_Range: index should be greater than bottom bound of array and lower than upper bound of array.";
+	const char *message_ = "Out_Of_Range: index should be greater than bottom bound of array and lower than upper bound of array.";
 };
 

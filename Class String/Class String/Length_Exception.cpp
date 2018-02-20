@@ -15,5 +15,5 @@ Length_Exception::~Length_Exception()
 const char* 
 Length_Exception::getMessage()
 {
-	return MESSAGE_;
+	return message_;
 }

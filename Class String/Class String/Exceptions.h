@@ -3,7 +3,7 @@ class Exceptions
 {
 public:
 	Exceptions();
-	~Exceptions();
+	virtual ~Exceptions();
 
 	const char* getMessage();
 

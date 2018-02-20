@@ -9,6 +9,6 @@ public:
 	const char* getMessage();
 
 private:
-	const char *MESSAGE_ = "Refer_To_Nullptr!";
+	const char *message_ = "Refer_To_Nullptr!";
 };
 

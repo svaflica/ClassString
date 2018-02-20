@@ -10,6 +10,6 @@ public:
 	const char* getMessage();
 
 private:
-	const char *MESSAGE_ = "Length_Exception: length should be positive and less than upper bound";
+	const char *message_ = "Length_Exception: length should be positive and less than upper bound";
 };
 

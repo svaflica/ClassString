@@ -15,5 +15,5 @@ Refer_To_Nullptr::~Refer_To_Nullptr()
 const char* 
 Refer_To_Nullptr::getMessage()
 {
-	return MESSAGE_;
+	return message_;
 }

@@ -9,6 +9,6 @@ public:
 	const char* getMessage();
 
 private:
-	const char *MESSAGE_ = "Memory_Exception: memory is full. Please, free some space.";
+	const char *message_ = "Memory_Exception: memory is full. Please, free some space.";
 };
 

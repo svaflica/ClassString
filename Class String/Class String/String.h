@@ -29,7 +29,13 @@ public:
 
 	~String();
 
-	String copyPartly(int startInd, int endInd, String &str);
+	friend String copyPart(int startInd, int endInd, String &str);
+
+	String& erase(int endInd, int startInd);
+	String erase(int endInd, int startInd, String &str);
+
+	String insert(int startInd, int endInd, String &str);
+
 
 	String& operator=(const String& string);
 

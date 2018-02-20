@@ -15,5 +15,5 @@ Out_Of_Range::~Out_Of_Range()
 const char*
 Out_Of_Range::getMessage()
 {
-	return MESSAGE_;
+	return message_;
 }
