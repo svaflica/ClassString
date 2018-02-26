@@ -7,9 +7,9 @@ public:
 	Parameter_Exception();
 	Parameter_Exception(const char *nameFunction, const char *nameParameter);
 
-	const char *getNameParameter();
-	const char *getNameFunction();
-	const char *getMessage();
+	const char *getNameParameter() const;
+	const char *getNameFunction() const;
+	const char *getMessage() const;
 
 	~Parameter_Exception();
 

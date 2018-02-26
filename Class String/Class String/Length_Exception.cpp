@@ -13,7 +13,7 @@ Length_Exception::~Length_Exception()
 
 
 const char* 
-Length_Exception::getMessage()
+Length_Exception::getMessage() const
 {
 	return message_;
 }

@@ -6,7 +6,7 @@ class Memory_Exception :
 public:
 	Memory_Exception();
 	~Memory_Exception();
-	const char* getMessage();
+	const char* getMessage() const;
 
 private:
 	const char *message_ = "Memory_Exception: memory is full. Please, free some space.";

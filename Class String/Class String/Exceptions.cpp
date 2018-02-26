@@ -8,7 +8,7 @@ Exceptions::Exceptions()
 
 
 const char* 
-Exceptions::getMessage()
+Exceptions::getMessage() const
 {
 	return message_;
 }

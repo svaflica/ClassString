@@ -13,7 +13,7 @@ Memory_Exception::~Memory_Exception()
 
 
 const char*
-Memory_Exception::getMessage()
+Memory_Exception::getMessage() const
 {
 	return message_;
 }

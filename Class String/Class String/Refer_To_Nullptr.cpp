@@ -13,7 +13,7 @@ Refer_To_Nullptr::~Refer_To_Nullptr()
 
 
 const char* 
-Refer_To_Nullptr::getMessage()
+Refer_To_Nullptr::getMessage() const
 {
 	return message_;
 }

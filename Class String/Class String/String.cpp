@@ -212,7 +212,7 @@ String::getLength()
 int
 String::getIndexOfSymbol(char symbol)
 {
-	if (value_[0] == '\0')
+	if (value_ == nullptr)
 		return -1;
 
 	for (int i = 0; (i < length_); i++)
@@ -405,11 +405,11 @@ String::erase(int startInd, int endInd)
 }
 
 //Dodelat, ne lenitsya!!!
-String
-String::insert(int startInd, int endInd, String &str)
-{
-	
-}
+//String
+//String::insert(int startInd, int endInd, String &str)
+//{
+//	
+//}
 
 
 //private:

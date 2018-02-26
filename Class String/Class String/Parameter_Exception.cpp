@@ -17,21 +17,21 @@ Parameter_Exception::Parameter_Exception(const char *nameFunction, const char *n
 
 
 const char*
-Parameter_Exception::getNameParameter()
+Parameter_Exception::getNameParameter() const
 {
 	return nameParameter_;
 }
 
 
 const char*
-Parameter_Exception::getNameFunction()
+Parameter_Exception::getNameFunction() const
 {
 	return nameFunction_;
 }
 
 
 const char*
-Parameter_Exception::getMessage()
+Parameter_Exception::getMessage() const
 {
 	return message_;
 }
